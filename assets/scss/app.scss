@@ -1,0 +1,49 @@
+@import 'swiper/css/swiper.min.css';
+
+.d-none { display: none; }
+@media only screen and (min-width: 768px) {
+  .d-block-lg { display: block; }
+}
+
+.w-0 { width: 0; }
+
+.swiper-scrollbar-v { cursor: grab; width: 10px!important }
+.swiper-pagination-v { left: 10px }
+
+.swiper-button-prev-h { left: 100px }
+.swiper-button-next-h { right: 100px }
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color:#000;
+  margin: 0;
+  padding: 0;
+}
+// main { margin-top: calc(50vh - 150px); }
+.swiper-container {
+  width: 100%;
+  height: 100vh;
+}
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+  /* Center slide text vertically */
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  -webkit-align-items: center;
+  align-items: center;
+}
+.swiper-container-v {
+  background: #eee;
+}
