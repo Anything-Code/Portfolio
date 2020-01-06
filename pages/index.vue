@@ -71,7 +71,7 @@ export default {
           SwiperV.slideNext()
         }
         
-        setTimeout(() => scrolling = false, 300);
+        setTimeout(() => scrolling = false);
       }
     })
 
