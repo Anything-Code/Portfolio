@@ -1,10 +1,11 @@
 <template>
   <main>
-    <!-- Swiper -->
+    <div class="w-100 h-100" id="particles"></div>
     <div class="swiper-container swiper-container-v">
       <div class="swiper-wrapper">
         <section class="swiper-slide">Vertical Slide 1</section>
         <section class="swiper-slide">
+
           <div class="swiper-container swiper-container-h">
             <div class="swiper-wrapper">
               <section class="swiper-slide">Horizontal Slide 1</section>
@@ -13,19 +14,18 @@
               <section class="swiper-slide">Horizontal Slide 4</section>
               <section class="swiper-slide">Horizontal Slide 5</section>
             </div>
+
             <nav class="swiper-pagination swiper-pagination-h"></nav>
 
             <div class="swiper-button-prev swiper-button-prev-h d-none d-block-lg"></div>
             <div class="swiper-button-next swiper-button-next-h d-none d-block-lg"></div>
           </div>
+
         </section>
         <section class="swiper-slide">Vertical Slide 3</section>
         <section class="swiper-slide">Vertical Slide 4</section>
       </div>
-      <!-- Add Pagination -->
-      <nav class="swiper-pagination swiper-pagination-v w-0"></nav>
 
-      <!-- If we need scrollbar -->
       <div class="swiper-scrollbar swiper-scrollbar-v"></div>
     </div>
   </main>

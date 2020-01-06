@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "nuxt": "^2.11.0",
+    "particles.js": "^2.0.0",
     "swiper": "^5.2.1"
   },
   "devDependencies": {

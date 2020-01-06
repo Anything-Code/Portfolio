@@ -5,7 +5,6 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ]
   },
-  css: [
-    '~assets/scss/app.scss'
-  ]
+  css: ['~assets/scss/app.scss'],
+  plugins: ['~/plugins/app.client.js']
 }
