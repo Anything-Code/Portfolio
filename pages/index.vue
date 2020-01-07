@@ -109,9 +109,9 @@ export default {
       slidesPerView: 'auto',
       initialSlide: 1,
       resistanceRatio: 0,
-      slideToClickedSlide: true,
       on: {
         slideChangeTransitionStart () {
+          this.activeIndex === 0 ? that.menuIsOpen = true : that.menuIsOpen = false
         },
         slideChangeTransitionEnd () {
           this.activeIndex === 0 ? that.menuIsOpen = true : that.menuIsOpen = false
