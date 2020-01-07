@@ -56,12 +56,14 @@ export default {
   },
   asyncData (context) {
     return {
-      swiperMenu: null,
-      menuIsOpen: false
+      menuIsOpen: false,
+      menuSwiper: null,
+      verticalSwiper: null,
+      horizontalSwiper: null,
     }
   },
   mounted() {
-    const SwiperV = new Swiper('.swiper-container-v', {
+    this.verticalSwiper = new Swiper('.swiper-container-v', {
       direction: 'vertical',
       keyboard: true,
       pagination: {
@@ -81,18 +83,18 @@ export default {
         
         if (event.deltaY < 0)
         {
-          SwiperV.slidePrev()
+          this.verticalSwiper.slidePrev()
         }
         else if (event.deltaY > 0)
         {
-          SwiperV.slideNext()
+          this.verticalSwiper.slideNext()
         }
         
         setTimeout(() => scrolling = false);
       }
     })
 
-    const SwiperH = new Swiper('.swiper-container-h', {
+    this.horizontalSwiper = new Swiper('.swiper-container-h', {
       keyboard: true,
       pagination: {
         el: '.swiper-pagination-h',
@@ -104,16 +106,13 @@ export default {
       },
     })
 
-    let that = this
-    this.swiperMenu = new Swiper('.swiper-container-menu', {
+    const that = this
+    this.menuSwiper = new Swiper('.swiper-container-menu', {
       slidesPerView: 'auto',
       initialSlide: 1,
       resistanceRatio: 0,
       on: {
         slideChangeTransitionStart () {
-          this.activeIndex === 0 ? that.menuIsOpen = true : that.menuIsOpen = false
-        },
-        slideChangeTransitionEnd () {
           this.activeIndex === 0 ? that.menuIsOpen = true : that.menuIsOpen = false
         }
       }
@@ -121,7 +120,7 @@ export default {
   },
   methods: {
     toggleMenu () {
-      this.menuIsOpen ? this.swiperMenu.slideNext() : this.swiperMenu.slidePrev()
+      this.menuIsOpen ? this.menuSwiper.slideNext() : this.menuSwiper.slidePrev()
     }
   }
 }
