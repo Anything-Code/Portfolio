@@ -111,14 +111,10 @@ export default {
       resistanceRatio: 0,
       slideToClickedSlide: true,
       on: {
-        slideChangeTransitionStart() {
+        slideChangeTransitionStart () {
         },
-        slideChangeTransitionEnd() {
-          if (this.activeIndex === 0) {
-            that.menuIsOpen = true
-          } else {
-            that.menuIsOpen = false
-          }
+        slideChangeTransitionEnd () {
+          this.activeIndex === 0 ? that.menuIsOpen = true : that.menuIsOpen = false
         }
       }
     })
@@ -126,7 +122,6 @@ export default {
   methods: {
     toggleMenu () {
       this.menuIsOpen ? this.swiperMenu.slideNext() : this.swiperMenu.slidePrev()
-      this.swiperMenu.activeIndex === 0 ? this.menuIsOpen = true : this.menuIsOpen = false
     }
   }
 }
