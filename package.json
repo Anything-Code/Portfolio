@@ -7,9 +7,12 @@
     "generate": "nuxt generate"
   },
   "dependencies": {
+    "animate.css": "^3.7.2",
     "nuxt": "^2.11.0",
+    "nuxt-material-design-icons": "^1.0.4",
     "particles.js": "^2.0.0",
-    "swiper": "^5.2.1"
+    "swiper": "^5.2.1",
+    "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
     "node-sass": "^4.13.0",

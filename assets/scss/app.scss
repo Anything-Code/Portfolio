@@ -1,9 +1,32 @@
+@import 'tailwindcss/dist/base.min.css';
+
+@import 'tailwindcss/dist/utilities.min.css';
+
+@import 'animate.css/animate.min.css';
+
 @import 'swiper/css/swiper.min.css';
 
 .d-none { display: none; }
 @media only screen and (min-width: 768px) {
   .d-block-lg { display: block; }
 }
+
+.transition { transition: 300ms; }
+.rotate-180 { transform: rotate(180deg); }
+
+.sub-menu { overflow: hidden; transition: 300ms; }
+
+hr.devider { border: solid 1px #444444 }
+
+.slide-enter-active, .slide-leave-active {
+  height: 222px;
+}
+.slide-enter, .slide-leave-to /* .fade-leave-active below version 2.1.8 */ {
+  height: 0
+}
+
+.menu-item { cursor: pointer; height: 44px; line-height: 44px; }
+.menu-item:hover { background-color: #464646; }
 
 .z-index-2 { z-index: 2; }
 
@@ -31,7 +54,7 @@ body {
   width: 100%;
   height: 100vh;
 }
-.swiper-slide {
+.swiper-slide:not(.menu) {
   text-align: center;
   font-size: 18px;
   /* Center slide text vertically */
@@ -50,14 +73,12 @@ body {
 }
 
 .menu {
-  min-width: 100px;
   width: calc(100vw - 60px);
-  max-width: calc(100vw - 60px);
   background-color: #303030;
   color: #fff;
   
   @media only screen and (min-width: 425px) {
-    width: 320px;
+    width: calc(425px - 60px);
   }
 }
 .content {

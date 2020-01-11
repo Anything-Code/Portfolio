@@ -4,7 +4,24 @@
     
     <div class="swiper-container swiper-container-menu">
       <div class="swiper-wrapper">
-        <div class="swiper-slide menu">Menu slide</div>
+        <div class="swiper-slide menu">
+          <div class="py-1">
+            <div class="menu-item px-4">Vertical Slide 1</div>
+            <div @click="showSubmenuOne = !showSubmenuOne" class="menu-item px-4 flex justify-between items-center">Vertical Slide 2<i class="material-icons transition" :class="showSubmenuOne ? 'rotate-180' : ''">expand_more</i></div>
+            <transition name="slide">
+              <div v-if="showSubmenuOne" class="sub-menu">
+                <div class="menu-item px-4">Horizontal Slide 1</div>
+                <div class="menu-item px-4">Horizontal Slide 2</div>
+                <div class="menu-item px-4">Horizontal Slide 3</div>
+                <div class="menu-item px-4">Horizontal Slide 4</div>
+                <div class="menu-item px-4">Horizontal Slide 5</div>
+                <hr class="devider">
+              </div>
+            </transition>
+            <div class="menu-item px-4">Vertical Slide 3</div>
+            <div class="menu-item px-4">Vertical Slide 4</div>
+          </div>
+        </div>
         <div class="swiper-slide content">
           <div @click="toggleMenu()" class="menu-button z-index-2" :class="menuIsOpen ? 'cross' : ''">
             <div class="bar"></div>
@@ -57,6 +74,7 @@ export default {
   asyncData (context) {
     return {
       menuIsOpen: false,
+      showSubmenuOne: true,
       menuSwiper: null,
       verticalSwiper: null,
       horizontalSwiper: null,
@@ -117,6 +135,7 @@ export default {
         }
       }
     })
+
   },
   methods: {
     toggleMenu () {

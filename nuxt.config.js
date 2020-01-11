@@ -6,5 +6,6 @@ export default {
     ]
   },
   css: ['~assets/scss/app.scss'],
-  plugins: ['~/plugins/app.client.js']
+  plugins: ['~/plugins/app.client.js'],
+  modules: ['nuxt-material-design-icons']
 }
