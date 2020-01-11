@@ -6,27 +6,29 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide menu">
           <div class="py-1">
-            <div class="menu-item px-4">Vertical Slide 1</div>
-            <div @click="showSubmenuOne = !showSubmenuOne" class="menu-item px-4 flex justify-between items-center">Vertical Slide 2<i class="material-icons transition" :class="showSubmenuOne ? 'rotate-180' : ''">expand_more</i></div>
+            <div @click="verticalSwiper.slideTo(0)" class="menu-item px-4" :class="verticalSwiperIndex === 0 ? 'text-tomato' : ''">Vertical Slide 1</div>
+            <div @click="showSubmenuOne = !showSubmenuOne" class="menu-item px-4 flex justify-between items-center" :class="verticalSwiperIndex === 1 ? 'text-tomato' : ''">Vertical Slide 2<i class="material-icons transition" :class="showSubmenuOne ? 'rotate-180' : ''">expand_more</i></div>
             <transition name="slide">
               <div v-if="showSubmenuOne" class="sub-menu">
-                <div class="menu-item px-4">Horizontal Slide 1</div>
-                <div class="menu-item px-4">Horizontal Slide 2</div>
-                <div class="menu-item px-4">Horizontal Slide 3</div>
-                <div class="menu-item px-4">Horizontal Slide 4</div>
-                <div class="menu-item px-4">Horizontal Slide 5</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(0)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 0 ? 'text-tomato' : ''">Horizontal Slide 1</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(1)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 1 ? 'text-tomato' : ''">Horizontal Slide 2</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(2)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 2 ? 'text-tomato' : ''">Horizontal Slide 3</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(3)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 3 ? 'text-tomato' : ''">Horizontal Slide 4</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(4)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 4 ? 'text-tomato' : ''">Horizontal Slide 5</div>
                 <hr class="devider">
               </div>
             </transition>
-            <div class="menu-item px-4">Vertical Slide 3</div>
-            <div class="menu-item px-4">Vertical Slide 4</div>
+            <div @click="verticalSwiper.slideTo(2)" class="menu-item px-4" :class="verticalSwiperIndex === 2 ? 'text-tomato' : ''">Vertical Slide 3</div>
+            <div @click="verticalSwiper.slideTo(3)" class="menu-item px-4" :class="verticalSwiperIndex === 3 ? 'text-tomato' : ''">Vertical Slide 4</div>
           </div>
         </div>
         <div class="swiper-slide content">
-          <div @click="toggleMenu()" class="menu-button z-index-2" :class="menuIsOpen ? 'cross' : ''">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
+          <div class="menu-button-wrapper">
+            <div @click="toggleMenu()" class="menu-button" :class="menuIsOpen ? 'cross' : ''">
+              <div class="bar"></div>
+              <div class="bar"></div>
+              <div class="bar"></div>
+            </div>
           </div>
 
           <div class="swiper-container swiper-container-v">
@@ -78,10 +80,14 @@ export default {
       menuSwiper: null,
       verticalSwiper: null,
       horizontalSwiper: null,
+
+      verticalSwiperIndex: 0,
+      horizontalSwiperIndex: 0
     }
   },
   mounted () {
     this.verticalSwiper = new Swiper('.swiper-container-v', {
+      initialSlide: JSON.parse(localStorage.getItem('verticalSwiperIndex')) !== null ? JSON.parse(localStorage.getItem('verticalSwiperIndex')) : 0,
       direction: 'vertical',
       keyboard: true,
       pagination: {
@@ -113,6 +119,7 @@ export default {
     })
 
     this.horizontalSwiper = new Swiper('.swiper-container-h', {
+      initialSlide: JSON.parse(localStorage.getItem('horizontalSwiperIndex')) !== null ? JSON.parse(localStorage.getItem('horizontalSwiperIndex')) : 0,
       keyboard: true,
       pagination: {
         el: '.swiper-pagination-h',
@@ -127,7 +134,7 @@ export default {
     const that = this
     this.menuSwiper = new Swiper('.swiper-container-menu', {
       slidesPerView: 'auto',
-      initialSlide: 1,
+      initialSlide: JSON.parse(localStorage.getItem('menuIsOpen')) === true ? 0 : 1,
       resistanceRatio: 0,
       on: {
         slideChangeTransitionStart () {
@@ -137,12 +144,23 @@ export default {
     })
 
     if(JSON.parse(localStorage.getItem('showSubmenuOne')) !== null) this.showSubmenuOne = JSON.parse(localStorage.getItem('showSubmenuOne'))
-
+    if(JSON.parse(localStorage.getItem('menuIsOpen')) !== null) this.menuIsOpen = JSON.parse(localStorage.getItem('menuIsOpen'))
   },
   watch: {
-    showSubmenuOne: newValue => {
+    menuIsOpen (newValue) {
+      localStorage.setItem('menuIsOpen', JSON.stringify(newValue))
+    },
+    showSubmenuOne (newValue) {
       localStorage.setItem('showSubmenuOne', JSON.stringify(newValue))
     },
+    'verticalSwiper.activeIndex' (newValue) {
+      localStorage.setItem('verticalSwiperIndex', JSON.stringify(newValue))
+      this.verticalSwiperIndex = newValue
+    },
+    'horizontalSwiper.activeIndex' (newValue) {
+      localStorage.setItem('horizontalSwiperIndex', JSON.stringify(newValue))
+      this.horizontalSwiperIndex = newValue
+    }
   },
   methods: {
     toggleMenu () {
