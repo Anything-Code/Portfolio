@@ -6,20 +6,20 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide menu">
           <div class="py-1">
-            <div @click="verticalSwiper.slideTo(0)" class="menu-item px-4" :class="verticalSwiperIndex === 0 ? 'text-tomato' : ''">Vertical Slide 1</div>
-            <div @click="showSubmenuOne = !showSubmenuOne" class="menu-item px-4 flex justify-between items-center" :class="verticalSwiperIndex === 1 ? 'text-tomato' : ''">Vertical Slide 2<i class="material-icons transition" :class="showSubmenuOne ? 'rotate-180' : ''">expand_more</i></div>
+            <div @click="verticalSwiper.slideTo(0)" class="menu-item px-4" :class="verticalSwiperIndex === 0 ? 'text-tomato' : ''">Über mich</div>
+            <div @click="showSubmenuOne = !showSubmenuOne" class="menu-item px-4 flex justify-between items-center" :class="verticalSwiperIndex === 1 ? 'text-tomato' : ''">Skillset<i class="material-icons transition" :class="showSubmenuOne ? 'rotate-180' : ''">expand_more</i></div>
             <transition name="slide">
               <div v-if="showSubmenuOne" class="sub-menu">
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(0)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 0 ? 'text-tomato' : ''">Horizontal Slide 1</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(1)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 1 ? 'text-tomato' : ''">Horizontal Slide 2</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(2)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 2 ? 'text-tomato' : ''">Horizontal Slide 3</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(3)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 3 ? 'text-tomato' : ''">Horizontal Slide 4</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(4)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 4 ? 'text-tomato' : ''">Horizontal Slide 5</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(0)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 0 ? 'text-tomato' : ''">Skill 1</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(1)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 1 ? 'text-tomato' : ''">Skill 2</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(2)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 2 ? 'text-tomato' : ''">Skill 3</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(3)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 3 ? 'text-tomato' : ''">Skill 4</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(4)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 4 ? 'text-tomato' : ''">Skill 5</div>
                 <hr class="devider">
               </div>
             </transition>
-            <div @click="verticalSwiper.slideTo(2)" class="menu-item px-4" :class="verticalSwiperIndex === 2 ? 'text-tomato' : ''">Vertical Slide 3</div>
-            <div @click="verticalSwiper.slideTo(3)" class="menu-item px-4" :class="verticalSwiperIndex === 3 ? 'text-tomato' : ''">Vertical Slide 4</div>
+            <div @click="verticalSwiper.slideTo(2)" class="menu-item px-4" :class="verticalSwiperIndex === 2 ? 'text-tomato' : ''">Laufbahn</div>
+            <div @click="verticalSwiper.slideTo(3)" class="menu-item px-4" :class="verticalSwiperIndex === 3 ? 'text-tomato' : ''">Projekte</div>
           </div>
         </div>
         <div class="swiper-slide content">
@@ -33,16 +33,16 @@
 
           <div class="swiper-container swiper-container-v">
             <div class="swiper-wrapper">
-              <section class="swiper-slide">Vertical Slide 1</section>
+              <section class="swiper-slide">Über mich</section>
               <section class="swiper-slide">
 
                 <div class="swiper-container swiper-container-h">
                   <div class="swiper-wrapper">
-                    <section class="swiper-slide">Horizontal Slide 1</section>
-                    <section class="swiper-slide">Horizontal Slide 2</section>
-                    <section class="swiper-slide">Horizontal Slide 3</section>
-                    <section class="swiper-slide">Horizontal Slide 4</section>
-                    <section class="swiper-slide">Horizontal Slide 5</section>
+                    <section class="swiper-slide">Skill 1</section>
+                    <section class="swiper-slide">Skill 2</section>
+                    <section class="swiper-slide">Skill 3</section>
+                    <section class="swiper-slide">Skill 4</section>
+                    <section class="swiper-slide">Skill 5</section>
                   </div>
 
                   <nav class="swiper-pagination swiper-pagination-h"></nav>
@@ -52,8 +52,8 @@
                 </div>
 
               </section>
-              <section class="swiper-slide">Vertical Slide 3</section>
-              <section class="swiper-slide">Vertical Slide 4</section>
+              <section class="swiper-slide">Laufbahn</section>
+              <section class="swiper-slide">Projekte</section>
             </div>
 
             <div class="swiper-scrollbar swiper-scrollbar-v"></div>
