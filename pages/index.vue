@@ -80,7 +80,7 @@ export default {
       horizontalSwiper: null,
     }
   },
-  mounted() {
+  mounted () {
     this.verticalSwiper = new Swiper('.swiper-container-v', {
       direction: 'vertical',
       keyboard: true,
@@ -136,6 +136,13 @@ export default {
       }
     })
 
+    if(JSON.parse(localStorage.getItem('showSubmenuOne')) !== null) this.showSubmenuOne = JSON.parse(localStorage.getItem('showSubmenuOne'))
+
+  },
+  watch: {
+    showSubmenuOne: newValue => {
+      localStorage.setItem('showSubmenuOne', JSON.stringify(newValue))
+    },
   },
   methods: {
     toggleMenu () {
