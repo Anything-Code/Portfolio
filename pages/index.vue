@@ -117,7 +117,7 @@ export default {
     }
   },
   beforeMount () {
-    this.socket = io('http://localhost:3000')
+    this.socket = io()
 
     this.socket.on('clients-changed', clients => this.clients = clients)
     this.socket.emit('last-messages', response => {
