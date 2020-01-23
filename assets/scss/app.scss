@@ -24,7 +24,7 @@
   content: initial
 }
 
-.swiper-scrollbar-drag { background-color: #303030 }
+// .swiper-scrollbar-drag { background-color: #303030 }
 
 .swiper-pagination{
   .swiper-pagination-bullet {
@@ -46,7 +46,7 @@
 
 .sub-menu { overflow: hidden; transition: 300ms; }
 
-hr.devider { border: solid 1px #444444 }
+hr.devider { border-top: solid 1px #444444 }
 
 .slide-enter-active, .slide-leave-active {
   height: 222px;
