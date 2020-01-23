@@ -11,4 +11,7 @@ export default {
   ],
   css: ['~assets/scss/app.scss'],
   plugins: ['~/plugins/app.client.js'],
+  env: {
+    WS_URL: process.env.WS_URL || 'http://localhost:3000'
+  }
 }
