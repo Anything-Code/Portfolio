@@ -1,6 +1,13 @@
 runtime: nodejs
+env: flex
 
-instance_class: F2
+manual_scaling:
+  instances: 1
+
+network:
+  session_affinity: true
+
+# instance_class: F2
 
 handlers:
   - url: /_nuxt
@@ -16,11 +23,6 @@ handlers:
     script: auto
     secure: always
 
-env: flex
-
 env_variables:
   HOST: '0.0.0.0'
   NODE_ENV: 'production'
-
-network:
-  session_affinity: true
