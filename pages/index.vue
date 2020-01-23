@@ -77,8 +77,8 @@
         <li v-for="(message, key) in messages" :key="key" class="message">
           <i class="timestamp" :title="message.date">
             <span>{{ formatDateToTime(message.date) }}</span>
-            <span v-if="message.userName === userName" style="color: #00BCD4">{{ message.userName }}</span>
-            <span v-else="message.userName === userName" style="color: #FF5252">{{ message.userName }}</span>
+            <span v-if="message.userName === userName" class="not-italic" style="color: #00BCD4">{{ message.userName }}</span>
+            <span v-else="message.userName === userName" class="not-italic" style="color: #FF5252">{{ message.userName }}</span>
           </i>: {{ message.text }}
         </li>
       </ul>
@@ -259,115 +259,3 @@ export default {
   }
 }
 </script>
-
-<style>
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-weight: 300;
-  -webkit-font-smoothing: antialiased;
-}
-
-html, input {
-  font-family:
-    "HelveticaNeue-Light",
-    "Helvetica Neue Light",
-    "Helvetica Neue",
-    Helvetica,
-    Arial,
-    "Lucida Grande",
-    sans-serif;
-}
-
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
-ul {
-  list-style: none;
-  word-wrap: break-word;
-}
-
-/* Utilities */
-
-.w-100 { width: 100% }
-.h-100 { height: 100% }
-
-/* Pages */
-
-.closed { transform: translateY(calc(50vh - 30px)); }
-
-.chat-panel {
-  border-top-left-radius: 10px;
-  position: fixed;
-  z-index: 1;
-  bottom: 0;
-  right: 0;
-  height: 50vh;
-  width: 400px;
-  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.12), 0 1px 5px 0 rgba(0,0,0,.2);
-  transition: 300ms;
-}
-
-@media only screen and (max-width: 400px) {
-  .chat-panel { width: 100%; border-top-right-radius: 10px; }
-  .persons { border-top-right-radius: 10px; }
-}
-
-/* Font */
-
-.log {
-  color: gray;
-  font-size: 70%;
-  margin: 5px;
-  text-align: center;
-}
-
-/* Messages */
-
-.persons {
-  border-top-left-radius: 10px;
-  height: 30px;
-  line-height: 30px;
-  font-size: .8rem;
-  padding: 0 10px;
-  overflow: hidden;
-  cursor: pointer;
-  transition: 400ms
-}
-
-.new-messages-alert { transform: translate3d(-160px, -25px, 0); display: inline-block; }
-
-.inverted { background-color: #3e3e3e; color: white }
-.inverted:hover { background-color: #707070; color: white }
-
-.light { background-color: #f8f8f8; color: black }
-.light:hover { background-color: #d3d3d3; color: black }
-
-.timestamp { color: #bcbcbc }
-
-.messages {
-  background-color: #ffffff;
-  font-size: .9rem;
-  height: calc(50vh - 70px);
-  margin: 0;
-  overflow-y: auto;
-  padding: 10px 15px 10px 15px;
-}
-
-/* Input */
-
-.inputMessage {
-  border: none;
-  border-top: solid 1px #e6e6e6;
-  font-size: .9rem;
-  height: 40px;
-  outline: none;
-  padding-left: 10px;
-  width: 100%;
-}
-</style>
