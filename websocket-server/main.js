@@ -3,11 +3,16 @@ const http = require('http')
 const socketIO = require('socket.io')
 const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator')
 
-const server = http.createServer(express())
+const app = express()
+const server = http.createServer(app)
 const io = socketIO(server, {
   pingInterval: 1000,
   pingTimeout: 1000,
 })
+
+app.get('/', (req, res) => {
+  res.send('Test');
+});
 
 server.listen(3000);
 
