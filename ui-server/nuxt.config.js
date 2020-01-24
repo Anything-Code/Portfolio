@@ -1,6 +1,6 @@
 export default {
   env: {
-    WEBSOCKET_SERVER_URL: 'https://34.68.136.217:3000'
+    WEBSOCKET_SERVER_URL: 'https://35.223.157.224'
   },
   head: {
     meta: [
