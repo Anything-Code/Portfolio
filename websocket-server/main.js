@@ -14,7 +14,7 @@ app.get('/', (req, res) => {
   res.send('Test');
 });
 
-server.listen(3000);
+server.listen(80);
 
 const randomUserName = {
   dictionaries: [adjectives, colors, animals],
