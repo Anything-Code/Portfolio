@@ -1,9 +1,6 @@
 export default {
-  server: {
-    port: 80, // default: 3000
-  },
   env: {
-    WEBSOCKET_SERVER_URL: 'http://localhost:3000'
+    WEBSOCKET_SERVER_URL: 'https://34.68.136.217:3000'
   },
   head: {
     meta: [

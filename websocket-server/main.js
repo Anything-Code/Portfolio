@@ -9,9 +9,7 @@ const io = socketIO(server, {
   pingTimeout: 1000,
 })
 
-server.listen(3000, () => {
-  console.log('listening on http://localhost:3000')
-});
+server.listen(3000);
 
 const randomUserName = {
   dictionaries: [adjectives, colors, animals],
