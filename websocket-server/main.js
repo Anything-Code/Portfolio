@@ -8,7 +8,12 @@ const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-na
 
 const app = express()
 
-app.use(cors())
+app.use(cors({
+  origin: 'https://xn--lbcke-kva.dev/',
+  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  preflightContinue: false,
+  optionsSuccessStatus: 204
+}))
 
 const server = http.createServer(app)
 const io = socketIO(server, {
