@@ -1,7 +1,14 @@
+const fs = require('fs')
 const express = require('express')
+const https = require('https')
 const http = require('http')
 const socketIO = require('socket.io')
 const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator')
+
+const options = {
+  key: fs.readFileSync('privatekey.pem'),
+  cert: fs.readFileSync('certificate.pem')
+};
 
 const app = express()
 const server = http.createServer(app)
@@ -11,10 +18,11 @@ const io = socketIO(server, {
 })
 
 app.get('/', (req, res) => {
-  res.send('Test');
+  res.send('Test')
 });
 
-server.listen(80);
+server.listen(80)
+https.createServer(options, app).listen(443)
 
 const randomUserName = {
   dictionaries: [adjectives, colors, animals],
