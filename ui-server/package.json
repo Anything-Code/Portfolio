@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "nuxt",
+    "dev": "cross-env WEBSOCKET_SERVER_URL=http://localhost nuxt",
     "build": "nuxt build",
-    "start": "nuxt start",
+    "start": "cross-env WEBSOCKET_SERVER_URL=https://35.223.157.224 nuxt start",
     "generate": "nuxt generate"
   },
   "author": "Niklas Lübcke",
@@ -20,6 +20,7 @@
     "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
+    "cross-env": "^6.0.3",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0"
   }

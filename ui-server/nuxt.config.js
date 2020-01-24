@@ -1,7 +1,4 @@
 export default {
-  env: {
-    WEBSOCKET_SERVER_URL: 'https://35.223.157.224'
-  },
   head: {
     meta: [
       { charset: 'utf-8' },

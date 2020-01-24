@@ -9,9 +9,10 @@ const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-na
 const app = express()
 
 app.use(cors({
-  origin: 'https://xn--lbcke-kva.dev/',
+  origin: 'https://xn--lbcke-kva.dev',
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   preflightContinue: false,
+  credentials: true,
   optionsSuccessStatus: 204
 }))
 
