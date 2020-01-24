@@ -98,6 +98,11 @@ export default {
   },
   asyncData (context) {
     return {
+      websocketServerUrl: process.env.WEBSOCKET_SERVER_URL
+    }
+  },
+  data (context) {
+    return {
       socket: null,
       messages: [],
       message: '',
@@ -117,7 +122,7 @@ export default {
     }
   },
   beforeMount () {
-    this.socket = io()
+    this.socket = io(this.websocketServerUrl)
 
     this.socket.on('clients-changed', clients => this.clients = clients)
     this.socket.emit('last-messages', response => {

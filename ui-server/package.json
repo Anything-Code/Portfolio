@@ -1,21 +1,23 @@
 {
-  "name": "portfolio",
+  "name": "ui-server",
+  "version": "1.0.0",
+  "description": "",
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate"
   },
+  "author": "Niklas Lübcke",
+  "license": "ISC",
   "dependencies": {
     "animate.css": "^3.7.2",
     "nuxt": "^2.11.0",
     "nuxt-material-design-icons": "^1.0.4",
     "particles.js": "^2.0.0",
-    "socket.io": "^2.3.0",
     "socket.io-client": "^2.3.0",
     "swiper": "^5.2.1",
-    "tailwindcss": "^1.1.4",
-    "unique-names-generator": "^4.1.1"
+    "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
     "node-sass": "^4.13.0",

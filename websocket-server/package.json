@@ -1,0 +1,24 @@
+{
+  "name": "websocket-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "dev": "nodemon main",
+    "start": "pm2 start main.js --name \"websocket-server\"",
+    "status": "pm2 list",
+    "restart": "pm2 restart websocket-server",
+    "stop": "pm2 stop websocket-server && pm2 delete websocket-server"
+  },
+  "author": "Niklas Lübcke",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0",
+    "unique-names-generator": "^4.1.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2",
+    "pm2": "^4.2.3"
+  }
+}
