@@ -11,6 +11,7 @@
   "author": "Niklas Lübcke",
   "license": "ISC",
   "dependencies": {
+    "cross-env": "^6.0.3",
     "animate.css": "^3.7.2",
     "nuxt": "^2.11.0",
     "nuxt-material-design-icons": "^1.0.4",
@@ -20,7 +21,6 @@
     "tailwindcss": "^1.1.4"
   },
   "devDependencies": {
-    "cross-env": "^6.0.3",
     "node-sass": "^4.13.0",
     "sass-loader": "^8.0.0"
   }
