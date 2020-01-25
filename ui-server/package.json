@@ -3,9 +3,9 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "dev": "cross-env WEBSOCKET_SERVER_URL=http://localhost nuxt",
+    "dev": "cross-env WEBSOCKET_SERVER_URL=http://localhost:8080 nuxt",
     "build": "nuxt build",
-    "start": "cross-env WEBSOCKET_SERVER_URL=https://35.223.157.224 nuxt start",
+    "start": "cross-env WEBSOCKET_SERVER_URL=https://websocket.xn--lbcke-kva.dev nuxt start",
     "generate": "nuxt generate"
   },
   "author": "Niklas Lübcke",
