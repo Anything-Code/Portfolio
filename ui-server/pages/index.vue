@@ -200,9 +200,6 @@ export default {
         }
       }
     })
-
-    if(JSON.parse(localStorage.getItem('showSubmenuOne')) !== null) this.showSubmenuOne = JSON.parse(localStorage.getItem('showSubmenuOne'))
-    if(JSON.parse(localStorage.getItem('menuIsOpen')) !== null) this.menuIsOpen = JSON.parse(localStorage.getItem('menuIsOpen'))
   },
   computed: {
     userName () {
@@ -213,12 +210,6 @@ export default {
     messages: 'scrollToBottom',
     chatClosed (chatClosed) {
       if (!chatClosed) this.newMessagesCounter = 0
-    },
-    menuIsOpen (newValue) {
-      localStorage.setItem('menuIsOpen', JSON.stringify(newValue))
-    },
-    showSubmenuOne (newValue) {
-      localStorage.setItem('showSubmenuOne', JSON.stringify(newValue))
     },
     'verticalSwiper.activeIndex' (newValue) {
       localStorage.setItem('verticalSwiperIndex', JSON.stringify(newValue))
@@ -232,17 +223,17 @@ export default {
   methods: {
     formatDateToTime (date) {
       return new Date().toLocaleDateString() === new Date(date).toLocaleDateString() ?
-      new Date(date).toLocaleTimeString(navigator.language, {
-        hour: '2-digit',
-        minute: '2-digit'
-      }) :
-      new Date(date).toLocaleTimeString(navigator.language, {
-        year: 'numeric',
-        month: '2-digit',
-        day: '2-digit',
-        hour: '2-digit',
-        minute: '2-digit'
-      })
+        new Date(date).toLocaleTimeString(navigator.language, {
+          hour: '2-digit',
+          minute: '2-digit'
+        }) :
+        new Date(date).toLocaleTimeString(navigator.language, {
+          year: 'numeric',
+          month: '2-digit',
+          day: '2-digit',
+          hour: '2-digit',
+          minute: '2-digit'
+        })
     },
     sendMessage () {
       if (!this.message.trim()) return
