@@ -1,7 +1,6 @@
 const fs = require('fs')
 const cors = require('cors')
 const express = require('express')
-// const https = require('https')
 const http = require('http')
 const socketIO = require('socket.io')
 const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-names-generator')
@@ -20,6 +19,14 @@ const server = http.createServer(app)
 const io = socketIO(server, {
   pingInterval: 1000,
   pingTimeout: 1000,
+  handlePreflightRequest (req, res) {
+    res.writeHead(200, {
+      "Access-Control-Allow-Headers": "Content-Type, Authorization",
+      "Access-Control-Allow-Origin": req.headers.origin,
+      "Access-Control-Allow-Credentials": true
+    })
+    res.end()
+  }
 })
 
 app.get('/', (req, res) => {
@@ -27,11 +34,6 @@ app.get('/', (req, res) => {
 });
 
 server.listen(8080)
-
-// https.createServer({
-//   key: fs.readFileSync('privatekey.pem'),
-//   cert: fs.readFileSync('certificate.pem')
-// }, app).listen(443)
 
 const randomUserName = {
   dictionaries: [adjectives, colors, animals],
