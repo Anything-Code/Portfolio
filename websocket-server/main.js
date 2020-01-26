@@ -1,5 +1,3 @@
-const fs = require('fs')
-const cors = require('cors')
 const express = require('express')
 const http = require('http')
 const socketIO = require('socket.io')
@@ -7,23 +5,15 @@ const { uniqueNamesGenerator, adjectives, colors, animals } = require('unique-na
 
 const app = express()
 
-app.use(cors({
-  origin: 'https://xn--lbcke-kva.dev',
-  methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-  preflightContinue: false,
-  credentials: true,
-  optionsSuccessStatus: 204
-}))
-
 const server = http.createServer(app)
 const io = socketIO(server, {
   pingInterval: 1000,
   pingTimeout: 1000,
   handlePreflightRequest (req, res) {
     res.writeHead(200, {
-      "Access-Control-Allow-Headers": "Content-Type, Authorization",
-      "Access-Control-Allow-Origin": req.headers.origin,
-      "Access-Control-Allow-Credentials": true
+      'Access-Control-Allow-Headers': 'Content-Type, Authorization',
+      'Access-Control-Allow-Origin': 'https://xn--lbcke-kva.dev', // || req.headers.origin
+      'Access-Control-Allow-Credentials': true
     })
     res.end()
   }
