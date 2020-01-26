@@ -231,7 +231,14 @@ ul {
   transition: 400ms
 }
 
-.new-messages-alert { transform: translate3d(-160px, -25px, 0); display: inline-block; }
+.new-messages-alert {
+  transform: translate3d(10px, -55px, 0);
+  display: inline-block;
+  
+  @media only screen and (min-width: 590px) {
+    transform: translate3d(-160px, -25px, 0);
+  }
+}
 
 .inverted { background-color: #303030; color: white }
 .inverted:hover { background-color: #707070; color: white }
