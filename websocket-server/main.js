@@ -20,7 +20,7 @@ const io = socketIO(server, {
 })
 
 app.get('/', (req, res) => {
-  res.send('Test')
+  res.send('Wie wärs mit einem Bwerbungsgespräch :)')
 });
 
 server.listen(8080)
