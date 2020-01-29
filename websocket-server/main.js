@@ -19,7 +19,7 @@ const io = socketIO(server, {
   }
 })
 
-app.get('/', (req, res) => {
+app.get('*', (req, res) => {
   res.send('Wie wärs mit einem Bwerbungsgespräch :)')
 });
 
