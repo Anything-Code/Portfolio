@@ -1,7 +1,12 @@
 <template>
   <main>
+
+    <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
+      <div v-if="showPreloader" style="background-image: url(loader.svg)" id="preloader"></div>
+    </transition>
+
     <div class="w-100 h-100" id="particles"></div>
-    
+
     <div class="swiper-container swiper-container-menu">
       <div class="swiper-wrapper">
         <div class="swiper-slide menu">
@@ -63,7 +68,7 @@
       </div>
     </div>
 
-    <aside class="chat-panel" :class="chatClosed ? 'closed' : ''">
+    <aside v-if="socketConnectionSuccessful" class="chat-panel" :class="chatClosed ? 'closed' : ''">
       <div @click="chatClosed = !chatClosed" class="persons" :class="chatClosed ? 'inverted' : 'light'">
         <b v-if="Object.keys(clients).length > 1">{{ Object.keys(clients).length }}</b>
         <span v-if="Object.keys(clients).length === 0"> Niemand schaut sich aktuell diese Seite an</span>
@@ -89,7 +94,7 @@
 </template>
 
 <script>
-import Swiper from 'swiper';
+import Swiper from 'swiper'
 import io from 'socket.io-client'
 
 export default {
@@ -103,7 +108,10 @@ export default {
   },
   data (context) {
     return {
+      showPreloader: true,
+
       socket: null,
+      socketConnectionSuccessful: true,
       messages: [],
       message: '',
       newMessagesCounter: 0,
@@ -124,6 +132,16 @@ export default {
   beforeMount () {
     this.socket = io(this.websocketServerUrl)
 
+    this.socket.on('connect', () => {
+      this.showPreloader = false
+      this.clientID = this.socket.id
+    });
+
+    this.socket.on('connect_error', () => {
+      this.socketConnectionSuccessful = false
+      this.showPreloader = false
+    });
+
     this.socket.on('clients-changed', clients => this.clients = clients)
     this.socket.emit('last-messages', response => {
       this.messages = response.messages
@@ -133,10 +151,6 @@ export default {
       this.messages.push(message)
       if (this.chatClosed) this.newMessagesCounter++
     })
-
-    this.socket.on('connect', () => {
-      this.clientID = this.socket.id;
-    });
   },
   mounted () {
     this.scrollToBottom()
