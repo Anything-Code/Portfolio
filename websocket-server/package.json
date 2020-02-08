@@ -13,8 +13,8 @@
   "author": "Niklas Lübcke",
   "license": "ISC",
   "dependencies": {
-    "pm2": "^4.2.3",
     "express": "^4.17.1",
+    "pm2": "^4.2.3",
     "socket.io": "^2.3.0",
     "unique-names-generator": "^4.1.1"
   },

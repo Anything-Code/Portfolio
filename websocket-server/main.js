@@ -19,6 +19,10 @@ const io = socketIO(server, {
   }
 })
 
+app.get('/api/messages', (req, res) => {
+  res.send(Messages)
+});
+
 app.get('*', (req, res) => {
   res.send('Wie wärs mit einem Bwerbungsgespräch :)')
 });
@@ -38,14 +42,6 @@ io.on('connection', socket => {
   clients[socket.id] = uniqueNamesGenerator(randomUserName)
 
   io.emit('clients-changed', clients)
-
-  socket.on('last-messages', response => {
-    response({
-      clients,
-      userName: clients[socket.id],
-      messages: Messages.slice(-50)
-    })
-  })
 
   socket.on('new-message', message => {
     const Message = {

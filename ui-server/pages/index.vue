@@ -96,6 +96,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import Swiper from 'swiper'
 import io from 'socket.io-client'
 
@@ -104,9 +105,12 @@ export default {
     title: 'Über Niklas Lübcke'
   },
   asyncData (context) {
-    return {
-      websocketServerUrl: process.env.WEBSOCKET_SERVER_URL
-    }
+    return axios.get(`${process.env.WEBSOCKET_SERVER_URL}/api/messages`).then(response => {
+      return {
+        messages: response.data,
+        websocketServerUrl: process.env.WEBSOCKET_SERVER_URL
+      }
+    })
   },
   data (context) {
     return {
@@ -114,7 +118,6 @@ export default {
 
       socket: null,
       socketConnectionSuccessful: true,
-      messages: [],
       message: '',
       newMessagesCounter: 0,
       clients: new Object,
@@ -145,9 +148,6 @@ export default {
     });
 
     this.socket.on('clients-changed', clients => this.clients = clients)
-    this.socket.emit('last-messages', response => {
-      this.messages = response.messages
-    })
 
     this.socket.on('new-message', message => {
       this.messages.push(message)
@@ -238,18 +238,20 @@ export default {
   },
   methods: {
     formatDateToTime (date) {
-      return new Date().toLocaleDateString() === new Date(date).toLocaleDateString() ?
-        new Date(date).toLocaleTimeString(navigator.language, {
-          hour: '2-digit',
-          minute: '2-digit'
-        }) :
-        new Date(date).toLocaleTimeString(navigator.language, {
-          year: 'numeric',
-          month: '2-digit',
-          day: '2-digit',
-          hour: '2-digit',
-          minute: '2-digit'
-        })
+      if (process.browser) {
+        return new Date().toLocaleDateString() === new Date(date).toLocaleDateString() ?
+          new Date(date).toLocaleTimeString(navigator.language, {
+            hour: '2-digit',
+            minute: '2-digit'
+          }) :
+          new Date(date).toLocaleTimeString(navigator.language, {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
+          })
+      }
     },
     sendMessage () {
       if (!this.message.trim()) return

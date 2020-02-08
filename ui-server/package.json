@@ -11,8 +11,9 @@
   "author": "Niklas Lübcke",
   "license": "ISC",
   "dependencies": {
-    "cross-env": "^6.0.3",
     "animate.css": "^3.7.2",
+    "axios": "^0.19.2",
+    "cross-env": "^6.0.3",
     "nuxt": "^2.11.0",
     "nuxt-material-design-icons": "^1.0.4",
     "particles.js": "^2.0.0",
