@@ -251,7 +251,7 @@ export default {
             hour: '2-digit',
             minute: '2-digit'
           })
-      }
+      } else return date
     },
     sendMessage () {
       if (!this.message.trim()) return
