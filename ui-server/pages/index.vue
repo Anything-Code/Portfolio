@@ -102,7 +102,8 @@ import io from 'socket.io-client'
 
 export default {
   head: {
-    title: 'Über Niklas Lübcke'
+    title: 'Niklas Lübcke Portfolio',
+    description: 'Servus, dies ist mein persönlicher Web-Auftritt auf dem ich versuche über mich selbst und meine Kompetenzen zu informieren. :)'
   },
   asyncData (context) {
     return axios.get(`${process.env.WEBSOCKET_SERVER_URL}/api/messages`).then(response => {
