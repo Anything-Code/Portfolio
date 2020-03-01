@@ -14,6 +14,7 @@ export default {
   pwa: {
     manifest: {
       name: 'Niklas Lübcke Portfolio',
+      short_name: 'Niklas Lübcke Portfolio',
       lang: 'de',
       description: 'Servus, dies ist mein persönlicher Web-Auftritt auf dem ich versuche über mich selbst und meine Kompetenzen zu informieren. :)'
     }
