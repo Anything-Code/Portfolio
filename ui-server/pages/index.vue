@@ -13,20 +13,20 @@
       <div class="swiper-wrapper">
         <div class="swiper-slide menu">
           <div class="py-1">
-            <div @click="verticalSwiper.slideTo(0)" class="menu-item px-4" :class="verticalSwiperIndex === 0 ? 'text-tomato' : ''">Über mich</div>
+            <div @click="verticalSwiper.slideTo(0); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 0 ? 'text-tomato' : ''">Über mich</div>
             <div @click="showSubmenuOne = !showSubmenuOne" class="menu-item px-4 flex justify-between items-center" :class="verticalSwiperIndex === 1 ? 'text-tomato' : ''">Skillset<i class="material-icons transition" :class="showSubmenuOne ? 'rotate-180' : ''">expand_more</i></div>
             <transition name="slide">
               <div v-if="showSubmenuOne" class="sub-menu">
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(0)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 0 ? 'text-tomato' : ''">Skill 1</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(1)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 1 ? 'text-tomato' : ''">Skill 2</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(2)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 2 ? 'text-tomato' : ''">Skill 3</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(3)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 3 ? 'text-tomato' : ''">Skill 4</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(4)" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 4 ? 'text-tomato' : ''">Skill 5</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(0); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 0 ? 'text-tomato' : ''">Skill 1</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(1); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 1 ? 'text-tomato' : ''">Skill 2</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(2); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 2 ? 'text-tomato' : ''">Skill 3</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(3); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 3 ? 'text-tomato' : ''">Skill 4</div>
+                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(4); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 4 ? 'text-tomato' : ''">Skill 5</div>
                 <hr class="devider">
               </div>
             </transition>
-            <div @click="verticalSwiper.slideTo(2)" class="menu-item px-4" :class="verticalSwiperIndex === 2 ? 'text-tomato' : ''">Laufbahn</div>
-            <div @click="verticalSwiper.slideTo(3)" class="menu-item px-4" :class="verticalSwiperIndex === 3 ? 'text-tomato' : ''">Projekte</div>
+            <div @click="verticalSwiper.slideTo(2); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 2 ? 'text-tomato' : ''">Laufbahn</div>
+            <div @click="verticalSwiper.slideTo(3); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 3 ? 'text-tomato' : ''">Projekte</div>
           </div>
         </div>
         <div class="swiper-slide content">
@@ -270,6 +270,13 @@ export default {
     },
     toggleMenu () {
       this.menuIsOpen ? this.menuSwiper.slideNext() : this.menuSwiper.slidePrev()
+    },
+    toggleMenuResponsive () {
+      if (this.menuIsOpen) {
+         if (window.innerWidth <= 768) {
+          this.menuSwiper.slideNext()
+        }
+      }
     }
   }
 }
