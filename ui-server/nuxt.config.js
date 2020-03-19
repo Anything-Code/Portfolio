@@ -7,7 +7,11 @@ export default {
   },
   buildModules: [
     ['@nuxtjs/google-analytics', {
-      id: 'UA-161183935-1'
+      id: 'UA-161183935-1',
+      // debug: {
+      //   enabled: true,
+      //   sendHitTask: true
+      // }
     }]
   ],
   modules: [
