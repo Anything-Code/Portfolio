@@ -5,6 +5,11 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
   },
+  buildModules: [
+    ['@nuxtjs/google-analytics', {
+      id: 'UA-161183935-1'
+    }]
+  ],
   modules: [
     '@nuxtjs/pwa',
     'nuxt-material-design-icons'
