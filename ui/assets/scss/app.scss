@@ -36,6 +36,30 @@
   left: 0;
 }
 
+.second-line { display: none }
+.third-line { display: none }
+
+.typewriter-container {
+  font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono";
+  margin-left: .5rem;
+  padding: .5rem 0;
+  @media only screen and (max-width: 1200px) {
+    margin-left: 60px!important;
+    padding: 10px 0;
+  }
+}
+
+.Typewriter__cursor {
+  position: absolute;
+  display: inline-block;
+  width: 8px;
+  height: 20px;
+  transform: translateY(-1px);
+  background-color: #000;
+}
+
+.swiper-container-vertical>.swiper-scrollbar { height: 95%; }
+
 .swiper-button-prev {
   background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D'http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg'%20viewBox%3D'0%200%2027%2044'%3E%3Cpath%20d%3D'M0%2C22L22%2C0l2.1%2C2.1L4.2%2C22l19.9%2C19.9L22%2C44L0%2C22L0%2C22L0%2C22z'%20fill%3D'%23FF6347'%2F%3E%3C%2Fsvg%3E") !important;
   background-repeat: no-repeat;
@@ -87,8 +111,12 @@ hr.devider { border-top: solid 1px #444444 }
 
 .text-tomato { color: tomato }
 
+.slim-menu-item { height: 44px; line-height: 44px; }
+
 .menu-item { cursor: pointer; height: 44px; line-height: 44px; }
 .menu-item:hover { background-color: #464646; }
+
+.icon:hover >svg>path { fill: #FF6347; }
 
 .z-index-2 { z-index: 2; }
 
@@ -111,14 +139,15 @@ body {
   margin: 0;
   padding: 0;
 }
-// main { margin-top: calc(50vh - 150px); }
+
 .swiper-container {
   width: 100%;
   height: 100vh;
 }
-.swiper-slide:not(.menu) {
-  text-align: center;
+
+.swiper-slide:not(.menu, .about) {
   font-size: 18px;
+  text-align: center;
   /* Center slide text vertically */
   display: -webkit-box;
   display: -ms-flexbox;
@@ -143,16 +172,27 @@ body {
     width: calc(425px - 60px);
   }
 }
+
+.gray-text { color: #656565; }
+
 .content {
-  width: 100%;
+  width: 100vw;
+  @media only screen and (min-width: 1200px) {
+    width: calc(100vw - (425px - 60px));
+  }
 }
+
 .menu-button-wrapper {
   height: 100vh;
   width: 60px;
   position: absolute;
   left: 0;
   z-index: 2;
+  @media only screen and (min-width: 1200px) {
+    display: none;
+  }
 }
+
 .menu-button {
   position: absolute;
   top: 0px; left: 0px;

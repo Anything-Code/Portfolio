@@ -16,10 +16,25 @@ export default {
   ],
   modules: [
     '@nuxtjs/pwa',
-    'nuxt-material-design-icons'
+    'nuxt-material-design-icons',
+    ['nuxt-fontawesome', {
+      imports: [
+       {
+         set: '@fortawesome/free-solid-svg-icons',
+         icons: ['fas']
+       },
+       {
+         set:'@fortawesome/free-brands-svg-icons',
+         icons: ['fab']
+       }
+     ]
+    }]
   ],
   css: ['~assets/scss/app.scss'],
-  plugins: ['~/plugins/particles.client.js'],
+  plugins: [
+    '~/plugins/particles.client.js',
+    '~/plugins/typewriter.client.js'
+  ],
   pwa: {
     manifest: {
       name: 'Niklas Lübcke Portfolio',

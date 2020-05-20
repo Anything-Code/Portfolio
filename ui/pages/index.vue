@@ -12,24 +12,83 @@
 
     <div class="swiper-container swiper-container-menu">
       <div class="swiper-wrapper">
-        <div class="swiper-slide menu">
-          <div class="py-1">
-            <div @click="verticalSwiper.slideTo(0); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 0 ? 'text-tomato' : ''">Über mich</div>
-            <div @click="showSubmenuOne = !showSubmenuOne" class="menu-item px-4 flex justify-between items-center" :class="verticalSwiperIndex === 1 ? 'text-tomato' : ''">Skillset<i class="material-icons transition" :class="showSubmenuOne ? 'rotate-180' : ''">expand_more</i></div>
-            <transition name="slide">
-              <div v-if="showSubmenuOne" class="sub-menu">
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(0); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 0 ? 'text-tomato' : ''">Skill 1</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(1); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 1 ? 'text-tomato' : ''">Skill 2</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(2); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 2 ? 'text-tomato' : ''">Skill 3</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(3); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 3 ? 'text-tomato' : ''">Skill 4</div>
-                <div @click="verticalSwiper.slideTo(1); horizontalSwiper.slideTo(4); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 1 && horizontalSwiperIndex === 4 ? 'text-tomato' : ''">Skill 5</div>
-                <hr class="devider">
+        <div class="swiper-slide menu relative">
+
+          <div class="flex flex-row">
+            <div class="w-4/12 p-4">
+              <img class="rounded-full" src="front_face.jpg" alt="Persönliches Bild">
+            </div>
+            <div class="flex flex-grow items-center w-8/12">
+              <div class="flex flex-col flex-grow">
+                <h1 class="font-sans text-3xl font-light leading-none">Portfolio</h1>
+                <h2 class="font-sans text-xl font-normal leading-none gray-text">Niklas Lübcke</h2>
               </div>
-            </transition>
-            <div @click="verticalSwiper.slideTo(2); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 2 ? 'text-tomato' : ''">Laufbahn</div>
-            <div @click="verticalSwiper.slideTo(3); toggleMenuResponsive()" class="menu-item px-4" :class="verticalSwiperIndex === 3 ? 'text-tomato' : ''">Projekte</div>
+            </div>
           </div>
+
+          <hr class="devider">
+
+          <div
+            @click="verticalSwiper.slideTo(0); toggleMenuResponsive()"
+            class="menu-item px-4"
+            :class="verticalSwiperIndex === 0 ? 'text-tomato' : ''"
+          >Über mich</div>
+          <div
+            @click="verticalSwiper.slideTo(1); toggleMenuResponsive()"
+            class="menu-item px-4"
+            :class="verticalSwiperIndex === 1 ? 'text-tomato' : ''"
+          >Laufbahn</div>
+          <div
+            @click="showSubmenuOne = !showSubmenuOne"
+            class="menu-item px-4 flex justify-between items-center"
+            :class="verticalSwiperIndex === 2 ? 'text-tomato' : ''"
+          >
+            Skillset
+            <i class="material-icons transition" :class="showSubmenuOne ? 'rotate-180' : ''">expand_more</i>
+          </div>
+          <transition name="slide">
+            <div v-if="showSubmenuOne" class="sub-menu">
+              <div
+                @click="verticalSwiper.slideTo(2); horizontalSwiper.slideTo(0); toggleMenuResponsive()"
+                class="menu-item px-4"
+                :class="verticalSwiperIndex === 2 && horizontalSwiperIndex === 0 ? 'text-tomato' : ''"
+              >Skill 1</div>
+              <div
+                @click="verticalSwiper.slideTo(2); horizontalSwiper.slideTo(1); toggleMenuResponsive()"
+                class="menu-item px-4"
+                :class="verticalSwiperIndex === 2 && horizontalSwiperIndex === 1 ? 'text-tomato' : ''"
+              >Skill 2</div>
+              <div
+                @click="verticalSwiper.slideTo(2); horizontalSwiper.slideTo(2); toggleMenuResponsive()"
+                class="menu-item px-4"
+                :class="verticalSwiperIndex === 2 && horizontalSwiperIndex === 2 ? 'text-tomato' : ''"
+              >Skill 3</div>
+              <div
+                @click="verticalSwiper.slideTo(2); horizontalSwiper.slideTo(3); toggleMenuResponsive()"
+                class="menu-item px-4"
+                :class="verticalSwiperIndex === 2 && horizontalSwiperIndex === 3 ? 'text-tomato' : ''"
+              >Skill 4</div>
+              <div
+                @click="verticalSwiper.slideTo(2); horizontalSwiper.slideTo(4); toggleMenuResponsive()"
+                class="menu-item px-4"
+                :class="verticalSwiperIndex === 2 && horizontalSwiperIndex === 4 ? 'text-tomato' : ''"
+              >Skill 5</div>
+
+              <hr class="devider">
+            </div>
+          </transition>
+
+          <div
+            @click="verticalSwiper.slideTo(3); toggleMenuResponsive()"
+            class="menu-item px-4"
+            :class="verticalSwiperIndex === 3 ? 'text-tomato' : ''"
+          >Projekte</div>
+
+          <a class="icon absolute bottom-0 slim-menu-item px-4" href="https://github.com/Anything-Code" target="_blank">
+            <font-awesome-icon  :icon="['fab', 'github']" style="font-size: 24px" />
+          </a>
         </div>
+
         <div class="swiper-slide content">
           <div class="menu-button-wrapper">
             <div @click="toggleMenu()" class="menu-button" :class="menuIsOpen ? 'cross' : ''">
@@ -41,7 +100,23 @@
 
           <div class="swiper-container swiper-container-v">
             <div class="swiper-wrapper">
-              <section class="swiper-slide">Über mich</section>
+              <section class="swiper-slide flex text-left about">
+                <div class="typewriter-container font-semibold leading-tight break-all mr-4">
+                  <div class="first-line">
+                    <span><span class="text-green-700">Niklas Lübcke@Portfolio</span>:<span class="text-purple-700">~</span>$</span>
+                    <span id="welcome"></span>
+                  </div>
+                  <div class="second-line">
+                    <span><span class="text-green-700">Niklas Lübcke@Portfolio</span>:<span class="text-purple-700">~</span>$</span>
+                    <span class="ml-3" id="second"></span>
+                  </div>
+                  <div class="third-line">
+                    <span><span class="text-green-700">Niklas Lübcke@Portfolio</span>:<span class="text-purple-700">~</span>$</span>
+                    <span class="ml-3" id="third"></span>
+                  </div>
+                </div>
+              </section>
+              <section class="swiper-slide">Laufbahn</section>
               <section class="swiper-slide">
 
                 <div class="swiper-container swiper-container-h">
@@ -60,7 +135,6 @@
                 </div>
 
               </section>
-              <section class="swiper-slide">Laufbahn</section>
               <section class="swiper-slide">Projekte</section>
             </div>
 
@@ -103,7 +177,7 @@ import io from 'socket.io-client'
 
 export default {
   head: {
-    title: 'Niklas Lübcke Portfolio',
+    title: 'Portfolio | Niklas Lübcke',
     description: 'Servus, dies ist mein persönlicher Web-Auftritt auf dem ich über mich selbst und meine Kompetenzen imformiere. :)'
   },
   asyncData (context) {
@@ -114,28 +188,26 @@ export default {
       }
     })
   },
-  data (context) {
-    return {
-      showPreloader: true,
+  data: (context) => ({
+    showPreloader: true,
 
-      socket: null,
-      socketConnectionSuccessful: true,
-      message: '',
-      newMessagesCounter: 0,
-      clients: new Object,
-      clientID: null,
-      chatClosed: true,
+    socket: null,
+    socketConnectionSuccessful: true,
+    message: '',
+    newMessagesCounter: 0,
+    clients: new Object,
+    clientID: null,
+    chatClosed: true,
 
-      menuIsOpen: false,
-      showSubmenuOne: true,
-      menuSwiper: null,
-      verticalSwiper: null,
-      horizontalSwiper: null,
+    menuIsOpen: false,
+    showSubmenuOne: true,
+    menuSwiper: null,
+    verticalSwiper: null,
+    horizontalSwiper: null,
 
-      verticalSwiperIndex: 0,
-      horizontalSwiperIndex: 0
-    }
-  },
+    verticalSwiperIndex: 0,
+    horizontalSwiperIndex: 0
+  }),
   beforeMount () {
     this.socket = io(this.websocketServerUrl)
 
@@ -157,6 +229,9 @@ export default {
     })
   },
   mounted () {
+    this.$particles()
+    this.$typewriter()
+
     this.scrollToBottom()
     window.addEventListener('resize', () => {
       this.scrollToBottom()
@@ -165,7 +240,10 @@ export default {
     this.verticalSwiper = new Swiper('.swiper-container-v', {
       initialSlide: JSON.parse(localStorage.getItem('verticalSwiperIndex')) !== null ? JSON.parse(localStorage.getItem('verticalSwiperIndex')) : 0,
       direction: 'vertical',
-      keyboard: true,
+      keyboard: {
+        enabled: true,
+        onlyInViewport: false,
+      },
       pagination: {
         el: '.swiper-pagination-v',
         clickable: true,
@@ -204,7 +282,7 @@ export default {
       navigation: {
         prevEl: '.swiper-button-prev-h',
         nextEl: '.swiper-button-next-h'
-      },
+      }
     })
 
     const that = this
@@ -274,7 +352,7 @@ export default {
     },
     toggleMenuResponsive () {
       if (this.menuIsOpen) {
-         if (window.innerWidth <= 768) {
+         if (window.innerWidth <= 1200) {
           this.menuSwiper.slideNext()
         }
       }
