@@ -32,6 +32,7 @@ export default {
   ],
   css: ['~assets/scss/app.scss'],
   plugins: [
+    '~/plugins/swiper.client.js',
     '~/plugins/particles.client.js',
     '~/plugins/typewriter.client.js'
   ],

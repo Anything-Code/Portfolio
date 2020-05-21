@@ -41,7 +41,7 @@
 
 .typewriter-container {
   font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono";
-  margin-left: .5rem;
+  margin-left: .75rem;
   padding: .5rem 0;
   @media only screen and (max-width: 1200px) {
     margin-left: 60px!important;
@@ -76,6 +76,12 @@
 }
 .swiper-button-next:after {
   content: initial
+}
+
+.swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
+  @media only screen and (max-width: 900px) {
+    bottom: 40px;
+  }
 }
 
 // .swiper-scrollbar-drag { background-color: #303030 }
@@ -117,6 +123,14 @@ hr.devider { border-top: solid 1px #444444 }
 .menu-item:hover { background-color: #464646; }
 
 .icon:hover >svg>path { fill: #FF6347; }
+
+.bottom-sometimes-0 {
+  @media only screen and (min-width: 450px) {
+    bottom: 0;
+  }
+
+  bottom: 30px;
+}
 
 .z-index-2 { z-index: 2; }
 
