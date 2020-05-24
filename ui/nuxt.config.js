@@ -12,7 +12,8 @@ export default {
       //   enabled: true,
       //   sendHitTask: true
       // }
-    }]
+    }],
+    '@nuxtjs/tailwindcss'
   ],
   modules: [
     '@nuxtjs/pwa',

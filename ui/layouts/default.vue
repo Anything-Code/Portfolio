@@ -5,7 +5,7 @@
     </noscript>
 
     <transition enter-active-class="animated fadeIn faster" leave-active-class="animated fadeOut faster">
-      <div v-if="showPreloader" style="background-image: url(loader.svg)" id="preloader"></div>
+      <div v-if="showPreloader" style="background-image: url(img/loader.svg)" id="preloader"></div>
     </transition>
 
     <div class="w-100 h-100" id="particles"></div>
@@ -16,12 +16,12 @@
 
           <div class="flex flex-row">
             <div class="w-4/12 p-4">
-              <img class="rounded-full" src="front_face.jpg" alt="Persönliches Bild">
+              <img class="rounded-full" src="img/face_blured.jpg" alt="Persönliches Bild">
             </div>
             <div class="flex flex-grow items-center w-8/12">
               <div class="flex flex-col flex-grow">
-                <h1 class="font-sans text-3xl font-light leading-none">Portfolio</h1>
-                <h2 class="font-sans text-xl font-normal leading-none gray-text">Niklas Lübcke</h2>
+                <h1 class="font-sans text-xl font-light leading-none">Portfolio</h1>
+                <h2 class="font-sans text-lg font-normal leading-none gray-text">Niklas Lübcke</h2>
               </div>
             </div>
           </div>
@@ -85,9 +85,14 @@
             </div>
           </transition> -->
 
-          <a class="icon absolute bottom-sometimes-0 slim-menu-item px-4" href="https://github.com/Anything-Code" target="_blank">
-            <font-awesome-icon  :icon="['fab', 'github']" style="font-size: 24px" />
-          </a>
+          <div class="absolute bottom-sometimes-0 slim-menu-item">
+            <a class="icon pl-4" href="https://github.com/Anything-Code" target="_blank">
+              <font-awesome-icon  :icon="['fab', 'github']" />
+            </a>
+            <a class="icon pl-4" href="https://stackoverflow.com/users/12978882/anything-code" target="_blank">
+              <font-awesome-icon  :icon="['fab', 'stack-overflow']" />
+            </a>
+          </div>
         </div>
 
         <nuxt/>
@@ -161,7 +166,6 @@ export default {
   mounted () {
     this.$swiper()
     this.$particles()
-    this.$typewriter()
 
     this.scrollToBottom()
     window.addEventListener('resize', () => {
@@ -212,7 +216,6 @@ export default {
       })
     },
     toggleMenuResponsive () {
-      console.log(window.innerWidth)
       if (window.innerWidth <= 1200) {
         this.$swiper.menu.slideTo(1)
       }

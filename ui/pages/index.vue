@@ -11,7 +11,7 @@
     <div class="swiper-container swiper-container-v">
       <div class="swiper-wrapper">
         <section class="swiper-slide flex text-left about">
-          <div class="typewriter-container font-semibold leading-tight break-all mr-4">
+          <div class="typewriter-container font-semibold leading-tight break-all">
             <div class="first-line">
               <span><span class="text-green-700">Niklas Lübcke@Portfolio</span>:<span class="text-purple-700">~</span>$</span>
               <span id="welcome"></span>
@@ -26,7 +26,29 @@
             </div>
           </div>
         </section>
-        <section class="swiper-slide">Projekte</section>
+        <section class="swiper-slide projects ml-60px">
+          <div class="container mx-auto lg:pl-4 pr-4">
+            <h1 class="text-4xl mb-4 leading-none">Projekte</h1>
+
+            <h2 class="text-lg mb-4 leading-tight">Hier biete ich einen Einblick in einige meiner Projekte, die ich seit meiner Nutzungszeit von Git anhäufen konnte. Es sind über die Jahre hinweg leider alle meiner Projekte, die ich vor meiner Nutzung von Git umgesetzt habe, verloren gegenagen. Diesbezüglich glaube ich, dass ich durch die Nutzung von Git den größten Schritt in meinem Developement-Workflow machen konnte.</h2>
+
+            <div class="skills mb-4">
+              <div @click="selection = []" class="skill" :class="selection.length === 0 ? 'selected' : ''">Alles</div>
+              <div
+                @click="selection.includes(skill) ? selection.splice(selection.findIndex(element => element === skill), 1) : selection.push(skill)"
+                class="skill"
+                :class="selection.includes(skill) ? 'selected' : ''"
+                v-for="skill in skills"
+              >
+                {{ skill }}
+              </div>
+            </div>
+
+            <div class="projects">
+              <div class="project"></div>
+            </div>
+          </div>
+        </section>
         
         <!-- <section class="swiper-slide">
 
@@ -62,6 +84,122 @@ export default {
   head: {
     title: 'Portfolio | Niklas Lübcke',
     description: 'Servus, dies ist mein persönlicher Web-Auftritt auf dem ich über mich selbst und meine Kompetenzen imformiere. :)'
+  },
+  data: () => ({
+    skills: [
+      'C/C++',
+      'Java',
+      'PHP',
+      'TypeScript',
+      'JavaScript',
+      'Python',
+      'R',
+      'Shellscript',
+      'Linux',
+      'Git',
+      'Node',
+      'Laravel',
+      'Nginx',
+      'MySQL',
+      'Redis',
+      'MongoDB',
+      'Vue',
+      'Nuxt',
+      'Sass',
+      'Webpack',
+      'Docker'
+    ],
+    selection: [],
+    projects: [
+      {
+        title: 'ARRIBA Sportreisen',
+        description: '',
+        images: [
+
+        ],
+        tag: 'live',
+        skills: [
+          'Git',
+          'PHP',
+          'MySQL',
+          'Laravel',
+          'Nginx',
+          'JavaScript',
+          'Vue',
+          'Sass',
+          'Webpack',
+          'Docker',
+          'Linux'
+        ]
+      },
+      {
+        title: 'gh-ai',
+        description: '',
+        images: [
+
+        ],
+        tag: 'live',
+        skills: [
+          'Git',
+          'PHP',
+          'Nginx',
+          'MySQL',
+          'JavaScript',
+          'Sass',
+          'Webpack',
+          'Docker'
+        ]
+      },
+      {
+        title: 'Transformation Suite Prototype',
+        description: '',
+        images: [
+
+        ],
+        tag: 'public',
+        skills: [
+          'Git',
+          'JavaScript',
+          'Nuxt',
+          'Sass'
+        ]
+      },
+      {
+        title: 'Game Trainer & Cheats',
+        description: '',
+        images: [
+
+        ],
+        tag: 'private',
+        skills: [
+          'Git',
+          'C/C++',
+          'Node',
+          'TypeScript',
+          'Vue',
+          'Sass',
+          'Webpack'
+        ]
+      },
+      {
+        title: 'Dieses Portfolio',
+        description: '',
+        images: [
+          
+        ],
+        tag: 'public',
+        skills: [
+          'Git',
+          'Nginx',
+          'Nuxt',
+          'JavaScript',
+          'Sass'
+        ]
+      }
+    ]
+  }),
+  mounted () {
+    this.$typewriter()
   },
   computed: {
     ...mapGetters(['menuIsOpen']),
