@@ -61,13 +61,12 @@ $darkGray: #333333;
 }
 
 .swiper-container-v>.swiper-scrollbar {
-  position: fixed;
+  cursor: grab;
+  width: 8px!important;
+  position: absolute;
   top: 8px;
-  right: -275px;
+  right: 6px;
   height: 95%;
-  @media only screen and (min-width: 1200px) {
-    right: 6px
-  }
 }
 
 .swiper-button-prev {
@@ -151,8 +150,6 @@ hr.devider { border-top: solid 1px #444444 }
 .h-100 { height: 100%; }
 
 #particles { position: fixed; }
-
-.swiper-scrollbar-v { cursor: grab; width: 8px!important }
 
 .swiper-button-prev-h { left: 100px }
 .swiper-button-next-h { right: 100px }
