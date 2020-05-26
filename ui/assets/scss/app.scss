@@ -229,7 +229,7 @@ body {
   align-items: center;
   position: absolute;
   transition: 200ms;
-  background-color: rgba($color: #000000, $alpha: 0);
+  background-color: rgba($color: #000000, $alpha: .5);
   opacity: 0;
   width: 100%;
   height: 100%;
@@ -244,7 +244,6 @@ body {
 
 .featured:hover .overlay {
   opacity: 1;
-  background-color: rgba($color: #000000, $alpha: .5);
 }
 
 .project img {
