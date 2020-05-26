@@ -60,7 +60,7 @@
                       <button
                         class="rounded focus:outline-none"
                         :class="project.tag.class"
-                      >mehr Infos</button>
+                      >Mehr Infos</button>
                     </div>
                     <img :src="project.images[0]" :alt="key + '. Bild zu ' + project.title">
                   </div>
