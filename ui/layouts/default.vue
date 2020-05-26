@@ -16,7 +16,7 @@
 
           <div class="flex flex-row">
             <div class="w-4/12 p-4">
-              <img class="rounded-full" src="img/face_blured.jpg" alt="Persönliches Bild">
+              <img class="rounded-full" src="img/face_blurred.jpg" alt="Persönliches Bild">
             </div>
             <div class="flex flex-grow items-center w-8/12">
               <div class="flex flex-col flex-grow">

@@ -27,25 +27,48 @@
           </div>
         </section>
         <section class="swiper-slide projects ml-60px">
-          <div class="container mx-auto lg:pl-4 pr-4">
+          <div class="container mx-auto lg:pl-4">
             <h1 class="text-4xl mb-4 leading-none">Projekte</h1>
 
-            <h2 class="text-lg mb-4 leading-tight">Hier biete ich einen Einblick in einige meiner Projekte, die ich seit meiner Nutzungszeit von Git anhäufen konnte. Es sind über die Jahre hinweg leider alle meiner Projekte, die ich vor meiner Nutzung von Git umgesetzt habe, verloren gegenagen. Diesbezüglich glaube ich, dass ich durch die Nutzung von Git den größten Schritt in meinem Developement-Workflow machen konnte.</h2>
+            <h2 class="text-lg mb-4 leading-tight">Hier biete ich einen Einblick in einige meiner Projekte, die ich seit meiner Nutzungszeit von Git anhäufen konnte. Es sind über die Jahre hinweg leider alle meiner Projekte, die ich vor meiner Nutzung von Git umgesetzt habe, verloren gegenagen. Ich schätze, dass die Nutzung von Git den größten Benefit zu meinem Developement Workflow beigetragen hat.</h2>
 
             <div class="skills mb-4">
-              <div @click="selection = []" class="skill" :class="selection.length === 0 ? 'selected' : ''">Alles</div>
               <div
-                @click="selection.includes(skill) ? selection.splice(selection.findIndex(element => element === skill), 1) : selection.push(skill)"
+                @click="selection = []"
+                :class="selection.length === 0 ? 'selected' : ''"
                 class="skill"
-                :class="selection.includes(skill) ? 'selected' : ''"
+              >Alles</div>
+              <div
                 v-for="skill in skills"
+                @click="toggleSkill(skill)"
+                :class="[
+                  selection.includes(skill) ? 'selected' : '',
+                  !skillInUse(skill) ? 'disabled' : ''
+                ]"
+                class="skill"
               >
                 {{ skill }}
               </div>
             </div>
 
-            <div class="projects">
-              <div class="project"></div>
+            <div class="flex flex-wrap -m-1">
+              <div v-if="skillsSelected(project)" class="p-1 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" v-for="(project, key) in projects">
+                <div class="project shadow rounded bg-white overflow-hidden">
+                  <div class="featured relative overflow-hidden">
+                    <div :class="project.tag.class" class="tag">{{ project.tag.text }}</div>
+                    <div class="overlay">
+                      <button
+                        class="rounded focus:outline-none"
+                        :class="project.tag.class"
+                      >mehr Infos</button>
+                    </div>
+                    <img :src="project.images[0]" :alt="key + '. Bild zu ' + project.title">
+                  </div>
+                  <div class="px-4 py-2">
+                    {{ project.title }}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -115,9 +138,13 @@ export default {
         title: 'ARRIBA Sportreisen',
         description: '',
         images: [
-
+          'img/arriba/1.png',
+          'img/arriba/2.png'
         ],
-        tag: 'live',
+        tag: {
+          text: 'live',
+          class: 'bg-blue-500'
+        },
         skills: [
           'Git',
           'PHP',
@@ -136,9 +163,13 @@ export default {
         title: 'gh-ai',
         description: '',
         images: [
-
+          'img/gh-ai/1.png',
+          'img/gh-ai/2.png'
         ],
-        tag: 'live',
+        tag: {
+          text: 'live',
+          class: 'bg-blue-500'
+        },
         skills: [
           'Git',
           'PHP',
@@ -154,9 +185,14 @@ export default {
         title: 'Transformation Suite Prototype',
         description: '',
         images: [
-
+          'img/transformation-suite/1.png',
+          'img/transformation-suite/2.png',
+          'img/transformation-suite/3.png'
         ],
-        tag: 'public',
+        tag: {
+          text: 'public',
+          class: 'bg-green-500'
+        },
         skills: [
           'Git',
           'JavaScript',
@@ -168,9 +204,16 @@ export default {
         title: 'Game Trainer & Cheats',
         description: '',
         images: [
-
+          'img/cheats/1.png',
+          'img/cheats/2.png',
+          'img/cheats/3.jpg',
+          'img/cheats/4.png',
+          'img/cheats/5.jpg'
         ],
-        tag: 'private',
+        tag: {
+          text: 'private',
+          class: 'primary'
+        },
         skills: [
           'Git',
           'C/C++',
@@ -185,9 +228,12 @@ export default {
         title: 'Dieses Portfolio',
         description: '',
         images: [
-          
+          'img/portfolio/1.png'
         ],
-        tag: 'public',
+        tag: {
+          text: 'public',
+          class: 'bg-green-500'
+        },
         skills: [
           'Git',
           'Nginx',
@@ -207,6 +253,33 @@ export default {
   methods: {
     toggleMenu () {
       this.menuIsOpen ? this.$swiper.menu.slideNext() : this.$swiper.menu.slidePrev()
+    },
+    skillInUse (skill) {
+      let result = false
+      this.projects.forEach(element => {
+        if (element.skills.includes(skill)) {
+          result = true
+        }
+      })
+      return result
+    },
+    toggleSkill (skill) {
+      this.selection.includes(skill) ?
+        this.selection.splice(this.selection.findIndex(element => element === skill), 1) :
+        this.selection.push(skill)
+    },
+    skillsSelected (project) {
+      if (this.selection.length > 0) {
+        let result = true
+        this.selection.forEach(element => {
+          if (!project.skills.includes(element)) {
+            result = false 
+          }
+        })
+        return result
+      } else {
+        return true
+      }
     }
   }
 }
