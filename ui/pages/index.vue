@@ -10,7 +10,7 @@
 
     <div class="swiper-container swiper-container-v">
       <div class="swiper-wrapper">
-        <section class="swiper-slide flex text-left about">
+        <section class="swiper-slide about">
           <div class="typewriter-container font-semibold leading-tight break-all">
             <div class="first-line">
               <span><span class="text-green-700">Niklas Lübcke@Portfolio</span>:<span class="text-purple-700">~</span>$</span>
@@ -26,11 +26,12 @@
             </div>
           </div>
         </section>
+
         <section class="swiper-slide projects ml-60px">
           <div class="container mx-auto lg:pl-4">
             <h1 class="text-4xl mb-4 leading-none">Projekte</h1>
 
-            <h2 class="text-lg mb-4 leading-tight">Hier biete ich einen Einblick in einige meiner Projekte, die ich seit meiner Nutzungszeit von Git anhäufen konnte. Es sind über die Jahre hinweg leider alle meiner Projekte, die ich vor meiner Nutzung von Git umgesetzt habe, verloren gegenagen. Ich schätze, dass die Nutzung von Git den größten Benefit zu meinem Developement Workflow beigetragen hat.</h2>
+            <h2 class="text-lg mb-4 leading-tight">Es sind über die Jahre hinweg leider alle meiner Projekte, die ich vor meiner Nutzung von Git umgesetzt habe, verloren gegenagen. Ich schätze, dass die Nutzung von Git den größten Benefit zu meinem Developement Workflow beigetragen hat.</h2>
 
             <div class="skills mb-4">
               <div
@@ -52,13 +53,13 @@
             </div>
 
             <div class="flex flex-wrap -m-1">
-              <div v-if="skillsSelected(project)" class="p-1 w-full sm:w-1/2 md:w-1/3 lg:w-1/4" v-for="(project, key) in projects">
+              <div v-if="skillsSelected(project)" class="p-1 w-full xs:w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4" v-for="(project, key) in projects">
                 <div class="project shadow rounded bg-white overflow-hidden">
                   <div class="featured relative overflow-hidden">
                     <div :class="project.tag.class" class="tag">{{ project.tag.text }}</div>
                     <div class="overlay">
                       <button
-                        class="rounded focus:outline-none"
+                        class="rounded focus:outline-none focus:shadow-outline"
                         :class="project.tag.class"
                       >Mehr Infos</button>
                     </div>
@@ -143,7 +144,7 @@ export default {
         ],
         tag: {
           text: 'live',
-          class: 'bg-blue-500'
+          class: 'bg-blue-500 hover:bg-blue-600 active:bg-blue-700'
         },
         skills: [
           'Git',
@@ -168,7 +169,7 @@ export default {
         ],
         tag: {
           text: 'live',
-          class: 'bg-blue-500'
+          class: 'bg-blue-500 hover:bg-blue-600 active:bg-blue-700'
         },
         skills: [
           'Git',
@@ -191,7 +192,7 @@ export default {
         ],
         tag: {
           text: 'public',
-          class: 'bg-green-500'
+          class: 'bg-green-500 hover:bg-green-600 active:bg-green-700'
         },
         skills: [
           'Git',
@@ -212,7 +213,7 @@ export default {
         ],
         tag: {
           text: 'private',
-          class: 'primary'
+          class: 'primary hover:primary active:primary'
         },
         skills: [
           'Git',
@@ -232,7 +233,7 @@ export default {
         ],
         tag: {
           text: 'public',
-          class: 'bg-green-500'
+          class: 'bg-green-500 hover:bg-green-600 active:bg-green-700'
         },
         skills: [
           'Git',

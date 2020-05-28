@@ -4,6 +4,7 @@
 
 $primary: #FF6347;
 $dark-primary: #ff3613;
+$darker-primary: #cc1f00;
 $light-gray: #aaaaaa;
 $gray: #656565;
 $dark-gray: #333333;
@@ -194,10 +195,15 @@ body {
   }
 }
 
+.about {
+  
+}
+
 .projects {
   position: absolute;
-  overflow: auto;
   top: 100vh;
+  height: initial;
+  min-height: 100%;
   padding-bottom: calc(30px + 1rem);
   @media only screen and (max-width: 1200px) {
     width: calc(100% - 60px);
@@ -284,6 +290,14 @@ body {
 
 .primary {
   background-color: $primary;
+}
+
+.hover\:primary:hover {
+  background-color: $dark-primary;
+}
+
+.active\:primary:active {
+  background-color: $darker-primary;
 }
 
 .menu-button-wrapper {
