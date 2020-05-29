@@ -106,7 +106,7 @@ import { mapGetters } from 'vuex'
 
 export default {
   head: {
-    title: 'Portfolio | Niklas Lübcke',
+    title: 'Portfolio',
     description: 'Servus, dies ist mein persönlicher Web-Auftritt auf dem ich über mich selbst und meine Kompetenzen imformiere. :)'
   },
   data: () => ({
