@@ -44,12 +44,10 @@ $dark-gray: #333333;
 
 .typewriter-container {
   font-family: "Lucida Console", "Lucida Sans Typewriter", monaco, "Bitstream Vera Sans Mono";
-  padding: .5rem 0;
+  padding: .5rem .75rem;
   font-size: 18px;
-  margin: 0 .75rem;
   @media only screen and (max-width: 1200px) {
-    margin: 0 1rem 0 60px!important;
-    padding: 10px 0;
+    padding: 49px .75rem;
   }
 }
 
@@ -206,13 +204,16 @@ body {
   min-height: 100%;
   padding-bottom: calc(30px + 1rem);
   @media only screen and (max-width: 1200px) {
-    width: calc(100% - 60px);
+    padding-top: 49px;
   }
 }
 
 .projects>div {
-  margin-top: 11px;
   padding-right: calc(1rem + 14px);
+  padding-left: 1rem;
+  @media only screen and (min-width: 1200px) {
+    margin-top: 11px;
+  }
 }
 
 .project {
@@ -292,6 +293,10 @@ body {
   background-color: $primary;
 }
 
+.text-primary {
+  color: $primary;
+}
+
 .hover\:primary:hover {
   background-color: $dark-primary;
 }
@@ -301,7 +306,6 @@ body {
 }
 
 .menu-button-wrapper {
-  height: 100vh;
   width: 60px;
   position: absolute;
   left: 0;
@@ -309,6 +313,12 @@ body {
   @media only screen and (min-width: 1200px) {
     display: none;
   }
+}
+
+.menu-button-wrapper>div {
+  height: 49px;
+  width: calc(100vw - 16px);
+  background-color: #fff;
 }
 
 .menu-button {

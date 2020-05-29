@@ -1,10 +1,12 @@
 <template>
   <div class="swiper-slide content">
     <div class="menu-button-wrapper">
-      <div @click="toggleMenu()" class="menu-button" :class="menuIsOpen ? 'cross' : ''">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
+      <div>
+        <div @click="toggleMenu()" class="menu-button" :class="menuIsOpen ? 'cross' : ''">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </div>
       </div>
     </div>
 
@@ -27,15 +29,15 @@
           </div>
         </section>
 
-        <section class="swiper-slide projects ml-60px">
-          <div class="container mx-auto lg:pl-4">
+        <section class="swiper-slide projects">
+          <div class="xl:max-w-screen-lg xl:mx-auto">
             <h1 class="text-4xl mb-4 leading-none">Projekte</h1>
 
             <h2 class="text-lg mb-4 leading-tight">Es sind über die Jahre hinweg leider alle meiner Projekte, die ich vor meiner Nutzung von Git umgesetzt habe, verloren gegenagen. Ich schätze, dass die Nutzung von Git den größten Benefit zu meinem Developement Workflow beigetragen hat.</h2>
 
             <div class="skills mb-4">
               <div
-                @click="selection = []"
+                @click="[selection = [], updateSwiper()]"
                 :class="selection.length === 0 ? 'selected' : ''"
                 class="skill"
               >Alles</div>
@@ -52,7 +54,7 @@
               </div>
             </div>
 
-            <div class="flex flex-wrap -m-1">
+            <div v-if="projectsFound()" class="flex flex-wrap -m-1">
               <div v-if="skillsSelected(project)" class="p-1 w-full xs:w-1/2 sm:w-1/2 md:w-1/3 lg:w-1/4" v-for="(project, key) in projects">
                 <div class="project shadow rounded bg-white overflow-hidden">
                   <div class="featured relative overflow-hidden">
@@ -71,6 +73,10 @@
                 </div>
               </div>
             </div>
+
+            <h3 v-else class="text-base font-bold text-primary">
+              Für Ihre Auswahl wurden keine Projekte gefunden!
+            </h3>
           </div>
         </section>
         
@@ -268,6 +274,13 @@ export default {
       this.selection.includes(skill) ?
         this.selection.splice(this.selection.findIndex(element => element === skill), 1) :
         this.selection.push(skill)
+      this.updateSwiper()
+    },
+    updateSwiper () {
+      setTimeout(() => {
+        this.$swiper.vertical.update()
+        this.$swiper.vertical.slideTo(1, 0)
+      }, 50)
     },
     skillsSelected (project) {
       if (this.selection.length > 0) {
@@ -281,6 +294,15 @@ export default {
       } else {
         return true
       }
+    },
+    projectsFound () {
+      const result = []
+      this.projects.forEach(element => {
+        if (this.skillsSelected(element)) {
+          result.push(element)
+        }
+      })
+      return result.length
     }
   }
 }
