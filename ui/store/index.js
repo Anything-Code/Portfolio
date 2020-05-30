@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const state = () => ({
   websocketServerUrl: process.env.WEBSOCKET_SERVER_URL,
-  
+
   messages: new Array,
   menuIsOpen: false,
 
@@ -34,13 +34,13 @@ export const actions = {
 }
 
 export const getters = {
-  menuIsOpen: (state) => {
+  menuIsOpen: state => {
     return state.menuIsOpen
   },
-  messages: (state) => {
+  messages: state => {
     return state.messages
   },
-  websocketServerUrl: (state) => {
+  websocketServerUrl: state => {
     return state.websocketServerUrl
   }
 }

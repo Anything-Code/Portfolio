@@ -33,6 +33,7 @@ export default {
   ],
   css: ['~assets/scss/app.scss'],
   plugins: [
+    '~/plugins/calcVH.client.js',
     '~/plugins/swiper.client.js',
     '~/plugins/particles.client.js',
     '~/plugins/typewriter.client.js'

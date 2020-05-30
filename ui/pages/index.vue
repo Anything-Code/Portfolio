@@ -33,7 +33,7 @@
           <div class="xl:max-w-screen-lg xl:mx-auto">
             <h1 class="text-4xl mb-4 leading-none">Projekte</h1>
 
-            <h2 class="text-lg mb-4 leading-tight">Es sind über die Jahre hinweg leider alle meiner Projekte, die ich vor meiner Nutzung von Git umgesetzt habe, verloren gegenagen. Ich schätze, dass die Nutzung von Git den größten Benefit zu meinem Developement Workflow beigetragen hat.</h2>
+            <h2 class="text-lg mb-4 leading-tight">Es sind über die Jahre hinweg leider alle meine Projekte, die ich vor meiner Nutzung von Git umgesetzt habe, verloren gegangen. Ich schätze, dass die Nutzung von Git den größten Benefit zu meinem Developement Workflow beigetragen hat.</h2>
 
             <div class="skills mb-4">
               <div
@@ -62,7 +62,7 @@
                     <div class="overlay">
                       <button
                         class="rounded focus:outline-none focus:shadow-outline"
-                        :class="project.tag.class"
+                        :class="project.class"
                       >Mehr Infos</button>
                     </div>
                     <img :src="project.images[0]" :alt="key + '. Bild zu ' + project.title">
@@ -113,7 +113,7 @@ import { mapGetters } from 'vuex'
 export default {
   head: {
     title: 'Portfolio',
-    description: 'Servus, dies ist mein persönlicher Web-Auftritt auf dem ich über mich selbst und meine Kompetenzen imformiere. :)'
+    description: 'Servus, ich bin Niklas Lübcke, 23 Jahre alt und komme aus Heidelberg. Ich studiere Wirtschaftsinformatik und bin seit 2018 selbständig als Softwareentwickler tätig.'
   },
   data: () => ({
     skills: [
@@ -150,8 +150,9 @@ export default {
         ],
         tag: {
           text: 'live',
-          class: 'bg-blue-500 hover:bg-blue-600 active:bg-blue-700'
+          class: 'bg-blue-500'
         },
+        class: 'bg-blue-500 hover:bg-blue-600 active:bg-blue-700',
         skills: [
           'Git',
           'PHP',
@@ -175,8 +176,9 @@ export default {
         ],
         tag: {
           text: 'live',
-          class: 'bg-blue-500 hover:bg-blue-600 active:bg-blue-700'
+          class: 'bg-blue-500'
         },
+        class: 'bg-blue-500 hover:bg-blue-600 active:bg-blue-700',
         skills: [
           'Git',
           'PHP',
@@ -198,8 +200,9 @@ export default {
         ],
         tag: {
           text: 'public',
-          class: 'bg-green-500 hover:bg-green-600 active:bg-green-700'
+          class: 'bg-green-500'
         },
+        class: 'bg-green-500 hover:bg-green-600 active:bg-green-700',
         skills: [
           'Git',
           'JavaScript',
@@ -219,8 +222,9 @@ export default {
         ],
         tag: {
           text: 'private',
-          class: 'primary hover:primary active:primary'
+          class: 'primary'
         },
+        class: 'primary hover:primary active:primary',
         skills: [
           'Git',
           'C/C++',
@@ -239,8 +243,9 @@ export default {
         ],
         tag: {
           text: 'public',
-          class: 'bg-green-500 hover:bg-green-600 active:bg-green-700'
+          class: 'bg-green-500'
         },
+        class: 'bg-green-500 hover:bg-green-600 active:bg-green-700',
         skills: [
           'Git',
           'Nginx',
