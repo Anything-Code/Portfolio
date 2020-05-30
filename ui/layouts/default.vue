@@ -127,7 +127,7 @@
 
 <script>
 import io from 'socket.io-client'
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
 
 export default {
   data: (context) => ({
@@ -159,7 +159,7 @@ export default {
     this.socket.on('clients-changed', clients => this.clients = clients)
 
     this.socket.on('new-message', message => {
-      this.messages.push(message)
+      this.addMessage(message)
       if (this.chatClosed) this.newMessagesCounter++
     })
   },
@@ -185,6 +185,7 @@ export default {
     }
   },
   methods: {
+    ...mapMutations(['addMessage']),
     formatDateToTime (date) {
       if (process.browser) {
         return new Date().toLocaleDateString() === new Date(date).toLocaleDateString() ?

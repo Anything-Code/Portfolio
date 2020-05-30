@@ -3,7 +3,7 @@ import axios from 'axios'
 export const state = () => ({
   websocketServerUrl: process.env.WEBSOCKET_SERVER_URL,
 
-  messages: new Array,
+  messages: [],
   menuIsOpen: false,
 
   verticalSwiperIndex: null,
@@ -22,25 +22,27 @@ export const mutations = {
   },
   setMessages (state, value) {
     state.messages = value
+  },
+  addMessage (state, value) {
+    state.messages.push(value)
   }
 }
 
 export const actions = {
-  nuxtServerInit ({ commit }, { req }) {
-    axios.get(`${process.env.WEBSOCKET_SERVER_URL}/api/messages`).then(response => {
-      commit('setMessages', response.data)
-    })
+  async nuxtServerInit ({ commit }, { req }) {
+    let { data } = await axios.get(`${process.env.WEBSOCKET_SERVER_URL}/api/messages`)
+    commit('setMessages', data)
   }
 }
 
 export const getters = {
-  menuIsOpen: state => {
+  menuIsOpen (state) {
     return state.menuIsOpen
   },
-  messages: state => {
+  messages (state) {
     return state.messages
   },
-  websocketServerUrl: state => {
+  websocketServerUrl (state) {
     return state.websocketServerUrl
   }
 }
