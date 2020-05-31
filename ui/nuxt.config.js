@@ -40,8 +40,8 @@ export default {
   ],
   pwa: {
     manifest: {
-      name: 'Niklas Lübcke Portfolio',
-      short_name: 'Niklas Lübcke Portfolio',
+      name: 'Niklas Lübcke | Portfolio',
+      short_name: 'Niklas Lübcke | Portfolio',
       lang: 'de',
       description: 'Servus, ich bin Niklas Lübcke, 23 Jahre alt und komme aus Heidelberg. Ich studiere Wirtschaftsinformatik und bin seit 2018 selbständig als Softwareentwickler tätig.'
     }
