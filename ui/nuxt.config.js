@@ -43,7 +43,7 @@ export default {
       name: 'Niklas Lübcke Portfolio',
       short_name: 'Niklas Lübcke Portfolio',
       lang: 'de',
-      description: 'Servus, dies ist mein persönlicher Web-Auftritt auf dem ich über mich selbst und meine Kompetenzen imformiere. :)'
+      description: 'Servus, ich bin Niklas Lübcke, 23 Jahre alt und komme aus Heidelberg. Ich studiere Wirtschaftsinformatik und bin seit 2018 selbständig als Softwareentwickler tätig.'
     }
   }
 }
