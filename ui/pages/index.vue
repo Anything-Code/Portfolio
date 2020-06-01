@@ -33,7 +33,7 @@
           <div class="xl:max-w-screen-lg xl:mx-auto">
             <h1 class="text-4xl mb-4 leading-none">Projekte</h1>
 
-            <h2 class="text-lg mb-4 leading-tight">Es sind über die Jahre hinweg leider alle meine Projekte, die ich vor meiner Nutzung von Git umgesetzt habe, verloren gegangen. Ich schätze, dass die Nutzung von Git den größten Benefit zu meinem Developement Workflow beigetragen hat.</h2>
+            <h2 class="text-lg mb-4 leading-tight">Es sind über die Jahre hinweg leider alle meine Projekte, die ich vor meiner Nutzung von Git umgesetzt habe, verloren gegangen. Ich schätze, dass die Nutzung von Git den größten Benefit zu meinem Developement Workflow beigetragen hat. Gegebenenfalls sind einige meiner Skills ausgegraut, da ich noch kein passendes Projekt umgesetzt habe.</h2>
 
             <div class="skills mb-4">
               <div
