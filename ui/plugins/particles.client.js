@@ -1,8 +1,8 @@
 import 'particles.js'
 
 export default ({ app }, inject) => {
-  if (document.querySelector('#particles'))
   inject('particles', () => {
+    if (document.querySelector('#particles'))
     particlesJS('particles', {
       particles: {
         number: {

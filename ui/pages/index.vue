@@ -115,6 +115,7 @@ export default {
     title: 'Portfolio',
     description: 'Servus, ich bin Niklas Lübcke, 23 Jahre alt und komme aus Heidelberg. Ich studiere Wirtschaftsinformatik und bin seit 2018 selbständig als Softwareentwickler tätig.'
   },
+  layout: 'main',
   data: () => ({
     skills: [
       'C/C++',
