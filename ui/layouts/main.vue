@@ -92,6 +92,12 @@
             <a class="icon pl-4" href="https://stackoverflow.com/users/12978882/anything-code" target="_blank">
               <font-awesome-icon  :icon="['fab', 'stack-overflow']" />
             </a>
+            <a class="icon pl-4" href="https://www.linkedin.com/in/niklas-l%C3%BCbcke-b346331a9" target="_blank">
+              <font-awesome-icon  :icon="['fab', 'linkedin']" />
+            </a>
+            <a class="icon pl-4" href="https://www.xing.com/profile/Niklas_Luebcke" target="_blank">
+              <font-awesome-icon  :icon="['fab', 'xing']" />
+            </a>
           </div>
         </div>
 
