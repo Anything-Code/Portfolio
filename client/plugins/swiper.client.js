@@ -6,6 +6,7 @@ export default ({ app }, inject) => {
     {
       app.$swiper.vertical = new Swiper('.swiper-container-v', {
         initialSlide: JSON.parse(localStorage.getItem('verticalSwiperIndex')) !== null ? JSON.parse(localStorage.getItem('verticalSwiperIndex')) : 0,
+        freeMode: true,
         slidesPerView: 'auto',
         direction: 'vertical',
         scrollbar: {
